@@ -9,3 +9,10 @@ require 'link'
 DataMapper.finalize
 
 DataMapper.auto_upgrade!
+
+set :views, Proc.new{File.join(root,'..','views')}
+
+get '/' do
+	@links = Link.all
+	erb :index
+end
