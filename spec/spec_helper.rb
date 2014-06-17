@@ -8,6 +8,8 @@
 ENV["RACK_ENV"] = 'test'
 require 'server'
 require 'link'
+require 'tag'
+require 'user'
 require 'database_cleaner'
 require 'capybara/rspec'
 
