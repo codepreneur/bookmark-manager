@@ -16,3 +16,6 @@ post '/users' do
 	end
 
 end
+
+# get '/users/reset_password/:token' do
+# end

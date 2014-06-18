@@ -1,6 +1,6 @@
 require 'sinatra'
 require 'data_mapper'
-require 'rack-flash'
+require 'sinatra/flash'
 require 'sinatra/partial'
 
 require_relative 'models/link'
@@ -20,9 +20,10 @@ enable :sessions
 
 #set :views, Proc.new{File.join(root,'..','views')}
 set :session_secret, 'super secret' 
-use Rack::Flash
+#use Rack::Flash
 set :partial_template_engine, :erb
 
+use Rack::Static, :urls => ['/css', '/js'], :root => 'public'
 
 
 
