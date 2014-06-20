@@ -15,4 +15,6 @@ group :development, :test do
 	gem 'rspec'
 	gem 'database_cleaner'
 	gem 'capybara'
+  gem 'pry'
+  gem "pry-nav"
 end
