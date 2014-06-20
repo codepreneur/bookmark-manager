@@ -62,3 +62,18 @@ feature "User signs up" do
 
 
 end
+
+feature "User has forgotten their password" do
+
+	scenario "clicking on forgotten password?" do
+		visit '/'
+		click_link 'Sign in'
+		click_link 'Forgotten password?'
+		expect(page).to have_content("Please enter your email")
+		fill_in :email, with: "test@test.com"
+		click_button "Reset"
+		expect(page.status_code).to eq 200
+		expect(page).to have_content "Check your test@test.com email!"
+	end
+
+end

@@ -2,6 +2,7 @@ require 'sinatra'
 require 'data_mapper'
 require 'sinatra/flash'
 require 'sinatra/partial'
+require 'pry'
 
 require_relative 'models/link'
 require_relative 'models/tag'
