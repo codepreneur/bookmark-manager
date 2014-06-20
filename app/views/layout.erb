@@ -6,10 +6,23 @@
 	</head>
 	<body>
 
+	<div class="wrapper">
 		<%= partial :header %>	
-		<%= partial :welcome_message %>
   	<%= partial :flash %>
-		<%= yield %>	
+		<div id="container">
+			<%= yield %>	
+		</div>
+		<div class="push"></div>
+	</div>
+	<div class="footer">
+		<%= partial :footer%>
+	</div>
+
+
+
+
+		
+		
 
 	</body>
 </html>

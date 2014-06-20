@@ -1,5 +1,5 @@
 get '/sessions/new' do
-	erb :"sessions/new"
+	erb :"sessions/new", :layout => !request.xhr?
 end
 
 
@@ -11,7 +11,7 @@ post '/sessions' do
 		session[:user_id] = user.id
 		redirect to('/')
 	else
-		flash[:errors] = ["The email or password is incorrect"]
+		flash.now[:errors] = ["The email or password is incorrect"]
 		erb :"sessions/new"
 	end
 
