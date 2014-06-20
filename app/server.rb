@@ -23,7 +23,7 @@ set :session_secret, 'super secret'
 #use Rack::Flash
 set :partial_template_engine, :erb
 
-use Rack::Static, :urls => ['/css', '/js'], :root => 'public'
+use Rack::Static, :urls => ['/css', '/js', '/images'], :root => 'public'
 
 
 
