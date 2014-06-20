@@ -17,28 +17,38 @@ post '/users' do
 
 end
 
-get '/users/reset_password/:token' do
+get '/users/reset_password' do
 	erb :"password/new"
 end
 
 get '/users/email' do
-	
 	erb :email
 end 
 
+
 post '/users/send_recovery_email' do
-	"Check your #{params[:email]} email!"
-end
-
-post '/send_recovery_email' do
-  pry.binding
-	def send_simple_message
-	  RestClient.post "https://api:key-3ax6xnjp29jd6fds4gc373sgvjxteol0"\
-	  "@api.mailgun.net/v2/samples.mailgun.org/messages",
-	  :from => "Excited User <me@samples.mailgun.org>",
-	  :to => "bar@example.com, baz@example.com",
-	  :subject => "Hello",
-	  :text => "Testing some Mailgun awesomness!"
+	email = params[:email]
+	"Check your #{email} email!"
+	user = User.first(:email => email)
+	if user
+		# avoid having to memorise ascii codes
+		user.password_token = (1..64).map{('A'..'Z').to_a.sample}.join
+		user.password_token_timestamp = Time.now
+		user.save
+		url = "http://localhost:9393/users/reset_password?token=#{user.password_token}"
+		send_recovery_email(email,url)
 	end
-
 end
+
+
+post '/users/change_password' do
+	params[:new_password]
+	params[:confirm_new_password]
+end
+
+
+
+
+
+
+
