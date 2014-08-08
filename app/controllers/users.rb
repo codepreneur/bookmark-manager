@@ -17,16 +17,16 @@ post '/users' do
 
 end
 
-get '/users/reset_password' do
+get '/users/reset_password' do 3
 	erb :"password/new"
 end
 
-get '/users/email' do
+get '/users/email' do 1
 	erb :email
 end 
 
 
-post '/users/send_recovery_email' do
+post '/users/send_recovery_email' do 2
 	email = params[:email]
 	"Check your #{email} email!"
 	user = User.first(:email => email)
@@ -41,9 +41,11 @@ post '/users/send_recovery_email' do
 end
 
 
-post '/users/change_password' do
+post '/users/change_password' do 4
 	params[:new_password]
 	params[:confirm_new_password]
+	#checsk gonna be done here
+
 end
 
 

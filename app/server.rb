@@ -3,7 +3,6 @@ require 'data_mapper'
 require 'sinatra/flash'
 require 'sinatra/partial'
 require 'rest_client'
-require 'pry'
 
 
 require_relative 'models/link'
